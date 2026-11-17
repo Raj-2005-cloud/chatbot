@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simple Chatbot</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── API Key Modal ── -->
+  <div class="modal-overlay hidden" id="apiKeyModal">
+    <div class="modal">
+      <div class="modal-icon">API Key</div>
+      <h3>Enter Gemini API Key</h3>
+      <p>Get a free key from <a href="https://aistudio.google.com/apikey" target="_blank">Google AI Studio</a>.</p>
+      <input type="password" id="apiKeyInput" placeholder="AIza..." autocomplete="off" />
+      <span class="error-msg" id="apiKeyError"></span>
+      <button id="saveKeyBtn">Save &amp; Start Chatting</button>
+    </div>
+  </div>
+
+  <!-- ── Chat UI ── -->
+  <div class="chat-container">
+    <div class="chat-header">
+      <div class="avatar">AI</div>
+      <div class="header-info">
+        <h2>ChatBot <span class="powered">powered by Gemini</span></h2>
+        <span class="status">● Online</span>
+      </div>
+      <button id="settingsBtn" title="Change API Key">settings</button>
+    </div>
+
+    <div class="chat-messages" id="chatMessages">
+      <div class="message bot">
+        <div class="bubble">
+          Hey, I'm your chatbot assistant. Enter your API key to start chatting.
+        </div>
+        <span class="timestamp" id="initTime"></span>
+      </div>
+    </div>
+
+    <div class="chat-input-area">
+      <input
+        type="text"
+        id="userInput"
+        placeholder="Type a message..."
+        autocomplete="off"
+      />
+      <button id="sendBtn" onclick="sendMessage()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+          <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <script src="chatbot.js"></script>
+</body>
+</html>
